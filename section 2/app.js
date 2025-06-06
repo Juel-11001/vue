@@ -41,6 +41,13 @@ const vm = Vue.createApp({
             
             return `${this.firstName} ${this.middleName} ${this.lastName}`
         }
+    },
+    watch:{
+        age(newValue,oldValue){
+            setTimeout(()=>{
+                this.age=30;
+            }, 4000)
+        }
     }
 
 }).mount('#app')
