@@ -25,7 +25,7 @@
                         <label for="name" class="block py-2 font-medium text-gray-500">First Name:</label>
                         <input type="text" name="name" id="name"
                             class="block w-full p-2 border border-gray-300 rounded-md shadow-sm text-gray-500 outline-blue-400"
-                            v-model="firstName">
+                            v-model.lazy.trim="firstName">
                     </div>
                     <div>
                         <label for="lastName" class="block py-2 font-medium text-gray-500">Middle Name:</label>
@@ -46,7 +46,11 @@
                             :value="lastName" @input.prevent="lastNameUpdate('the last name was trigered now', $event)">
                     </div>
                 </form>
-                <div class="mt-4"><span> Age: {{ age }}</span></div>
+                <div class="mt-4 font-medium text-2xl"><span> Age: {{ typeof age }}</span></div>
+               <div class="mt-2">
+                 <label for="age">Age :</label>
+                <input class="block w-full p-2 border border-gray-300 rounded-md shadow-sm text-gray-500 outline-blue-400" type="number" name="age" id="age" v-model.number="age">
+               </div>
                 <div class="flex gap-4 mt-2">
                     <div class="">
                         <button
