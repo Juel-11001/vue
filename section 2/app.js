@@ -23,8 +23,10 @@ const vm = Vue.createApp({
         decrement(){
             this.age--
         },
-        lastNameUpdate(e){
-            this.lastName=e.target.value
+        lastNameUpdate(mes,event){
+            // event.preventDefault();
+            console.log(mes);
+            this.lastName=event.target.value
         }
     },
 
