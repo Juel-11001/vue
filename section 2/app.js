@@ -12,12 +12,14 @@ const vm = Vue.createApp({
         }
     },
     methods: {
-        fullName(){
-            const lastname=this.lastName
-            const finalname=lastname.charAt(0).toUpperCase()+lastname.slice(1)
-            return `${this.firstName} ${this.middleName} ${finalname}`
-            // return `${this.firstName} ${this.lastName.toUpperCase()}`
-        },
+        // fullName(){
+        //     console.log("method property call!");
+            
+        //     const lastname=this.lastName
+        //     const finalname=lastname.charAt(0).toUpperCase()+lastname.slice(1)
+        //     return `${this.firstName} ${this.middleName} ${finalname}`
+        //     // return `${this.firstName} ${this.lastName.toUpperCase()}`
+        // },
         increment(){
             this.age++
         },
@@ -26,13 +28,20 @@ const vm = Vue.createApp({
         },
         lastNameUpdate(mes,event){
             // event.preventDefault();
-            console.log(mes);
+            // console.log(mes);
             this.lastName=event.target.value
         },
         middleNameUpdate(event){
             this.middleName=event.target.value
         }
     },
+    computed:{
+        fullNameWithComputed(){
+            console.log("computed property call!");
+            
+            return `${this.firstName} ${this.middleName} ${this.lastName}`
+        }
+    }
 
 }).mount('#app')
 
