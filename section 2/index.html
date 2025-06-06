@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>vue3</title>
+</head>
+
+<body class="h-ful">
+    <div id="app">
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8" v-cloak>
+            <p class="text-2xl p-2 font-medium text-center"> {{ fullName() }}</p>
+            <span class="my-2 mx-2 text-2xl"><a :href="google_url" target="_blank" class="text-blue-500 hover:text-blue-600 font-medium underline coursor-pointer transition-colors" >Google</a></span>
+
+            <span class="my-2 text-2xl" v-html="raw_url"></span>
+            <!-- <p class="my-2 text-2xl">{{ raw_url}}</p> -->
+            <hr class="text-gray-200 shadow-sm mb-4">
+            <div class="border border-gray-200 rounded-md p-4 shadow-md">
+                <form action="" class="grid gap-4 md:grid-cols-1 lg:grid-cols-2">
+                    <div>
+                        <label for="name" class="block py-2 font-medium text-gray-500">First Name:</label>
+                        <input type="text" name="name" id="name"
+                            class="block w-full p-2 border border-gray-300 rounded-md shadow-sm text-gray-500 outline-blue-400" v-model="firstName">
+                    </div>
+                    <div>
+                        <label for="lastName" class="block py-2 font-medium text-gray-500">Last Name:</label>
+                        <input type="text" name="lastName" id="lastName"
+                            class="block w-full p-2 border border-gray-300 rounded-md shadow-sm text-gray-500 outline-blue-400" v-model="lastName">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- <div id="second_app">
+        <p> {{ firstName }} {{ lastName }}</p>
+    </div> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
