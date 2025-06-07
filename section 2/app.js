@@ -77,7 +77,28 @@ const vm = Vue.createApp({
 const vm2=Vue.createApp({
     data(){
         return {
-            mode:1
+            mode:1,
+            birds:['Egale', 'Pigeon', 'Parrot', 'Ostrich'],
+            poples:[{
+                id:1,
+                name:"Hasan",
+                age:28
+            },{
+                id:2,
+                name:"jamil",
+                age:29
+            },{
+                id:3,
+                name:"Sayed",
+                age:25
+            }]
+        }
+    },
+    methods:{
+        shitArray(){
+            const ppl=this.poples.shift();
+            this.poples.push(ppl);
+            
         }
     }
 }).mount('#second_app')

@@ -110,8 +110,21 @@
     <div id="second_app">
         <div class="container mx-auto px-4">
             <div class="border border-gray-200 rounded-md p-4 shadow-md">
-                <p class="font-semibold mb-4 text-2xl" v-if="mode===1">v-if directive</p>
-                <p class="text-red-400 text-2xl" v-else>No directive</p>
+                <div class="font-semibold mb-4 text-2xl" v-if="mode===1">v-if directive</div>
+                <div class="text-red-400 text-2xl" v-else>No directive</div>
+                <div>
+                    <div v-for="(bird, index) in birds">
+                        {{index +1 }}.bird: {{ bird }}
+                    </div>
+                </div>
+                <button class="bg-blue-500 text-white font-medium py-2 px-4 rounded-md shadow-md transition hover:bg-blue-600 cursor-pointer" type="button" @click="shitArray">shorting pople array</button>
+                <div>
+                    <div v-for="user in poples" :key="user.id">
+                        <p>Name:{{user.name}}</p>
+                        <p>Age:{{user.age}}</p>
+                        <input class="border border-gray-300 outline-blue-400 rounded-md p-2" type="text" name="" id="">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
