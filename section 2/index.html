@@ -48,11 +48,11 @@
                             :value="lastName" @input.prevent="lastNameUpdate('the last name was trigered now', $event)">
                     </div>
                 </form>
-                <div class="mt-4 font-medium text-2xl"><span> Age: {{ typeof age }}</span></div>
+                <div class="mt-4 font-medium text-2xl"><span> Age: {{ age }}</span></div>
                 <div class="mt-2">
-                    <label for="age">Age :</label>
+                    <label for="age" class="py-2">Age :</label>
                     <input
-                        class="block w-full p-2 border border-gray-300 rounded-md shadow-sm text-gray-500 outline-blue-400"
+                        class="block w-full p-2 py-2 border border-gray-300 rounded-md shadow-sm text-gray-500 outline-blue-400"
                         type="number" name="age" id="age" v-model.number="age">
                 </div>
                 <div class="flex gap-4 mt-2">
@@ -96,14 +96,23 @@
                     <!-- Right section: Circle -->
                     <div class="w-full lg:w-1/2 flex justify-center items-center">
                         <div class="relative bg-blue-500 rounded-full flex items-center justify-center"
-                            :class="circle_class" :style="[{ width: size + 'px', height: size + 'px' }, {transform: 'rotate(0deg)'}]">
+                            :class="circle_class"
+                            :style="[{ width: size + 'px', height: size + 'px' }, {transform: 'rotate(0deg)'}]">
                             <span class="absolute font-medium text-white text-4xl" :class="selectedColor">Hi!</span>
                         </div>
                     </div>
                 </div>
 
             </div>
-
+            <br>
+        </div>
+    </div>
+    <div id="second_app">
+        <div class="container mx-auto px-4">
+            <div class="border border-gray-200 rounded-md p-4 shadow-md">
+                <p class="font-semibold mb-4 text-2xl" v-if="mode===1">v-if directive</p>
+                <p class="text-red-400 text-2xl" v-else>No directive</p>
+            </div>
         </div>
     </div>
     <!-- <div id="second_app">

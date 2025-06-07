@@ -73,3 +73,11 @@ const vm = Vue.createApp({
 //         }
 //     }
 // }).mount('#second_app')
+
+const vm2=Vue.createApp({
+    data(){
+        return {
+            mode:1
+        }
+    }
+}).mount('#second_app')
