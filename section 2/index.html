@@ -41,17 +41,20 @@
                             v-model="lastName">
                     </div>
                     <div>
-                        <label for="lastName" class="block py-2 font-medium text-gray-500">Last Name Update with Event:</label>
+                        <label for="lastName" class="block py-2 font-medium text-gray-500">Last Name Update with
+                            Event:</label>
                         <input type="text" name="lastName" id="lastName"
                             class="block w-full p-2 border border-gray-300 rounded-md shadow-sm text-gray-500 outline-blue-400"
                             :value="lastName" @input.prevent="lastNameUpdate('the last name was trigered now', $event)">
                     </div>
                 </form>
                 <div class="mt-4 font-medium text-2xl"><span> Age: {{ typeof age }}</span></div>
-               <div class="mt-2">
-                 <label for="age">Age :</label>
-                <input class="block w-full p-2 border border-gray-300 rounded-md shadow-sm text-gray-500 outline-blue-400" type="number" name="age" id="age" v-model.number="age">
-               </div>
+                <div class="mt-2">
+                    <label for="age">Age :</label>
+                    <input
+                        class="block w-full p-2 border border-gray-300 rounded-md shadow-sm text-gray-500 outline-blue-400"
+                        type="number" name="age" id="age" v-model.number="age">
+                </div>
                 <div class="flex gap-4 mt-2">
                     <div class="">
                         <button
@@ -63,6 +66,22 @@
                         <button
                             class="bg-blue-500 text-white font-medium py-2 px-4 rounded-md shadow-md transition hover:bg-blue-600 cursor-pointer"
                             @click.ctrl="decrement">Decrement Age</button>
+                    </div>
+                </div>
+                <div class="mt-8  mb-8">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="checked" id="checked" v-model="isPurple">
+                        <label for="checked" class="text-gray-600">Purple</label>
+                    </div>
+                    <div class="w-50 py-4">
+                        <select name="color" id="" class="border border-gray-300 p-2 rounded-md outline-blue-400 w-full" v-model="selectedColor">
+                            <option value="">white</option>
+                            <option value="text-black">black</option>
+                            <option value="text-orange">orange</option>
+                        </select>
+                    </div>
+                    <div class="relative w-50 h-50 bg-blue-500 rounded-full flex items-center justify-center" :class="circle_class">
+                        <span class="absolute font-medium text-white text-4xl" :class="selectedColor">Hi!</span>
                     </div>
                 </div>
             </div>

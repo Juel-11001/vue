@@ -9,6 +9,8 @@ const vm = Vue.createApp({
             raw_url:'<a href="https://google.com" target="_blank" class="text-blue-500 hover:text-blue-600 font-medium underline coursor-pointer transition-colors" >Google</a>',
             age:30,
             middleName:"",
+            isPurple:false,
+            selectedColor:"",
         }
     },
     methods: {
@@ -40,6 +42,11 @@ const vm = Vue.createApp({
             console.log("computed property call!");
             
             return `${this.firstName} ${this.middleName} ${this.lastName}`
+        },
+        circle_class(){
+            return {
+                purple: this.isPurple
+            }
         }
     },
     watch:{
