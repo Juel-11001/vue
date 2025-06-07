@@ -68,22 +68,40 @@
                             @click.ctrl="decrement">Decrement Age</button>
                     </div>
                 </div>
-                <div class="mt-8  mb-8">
-                    <div class="flex items-center gap-2">
-                        <input type="checkbox" name="checked" id="checked" v-model="isPurple">
-                        <label for="checked" class="text-gray-600">Purple</label>
+
+                <div class="mt-8 mb-8 flex flex-col lg:flex-row justify-between items-start gap-6">
+                    <!-- Left section -->
+                    <div class="flex flex-col gap-4 w-full lg:w-1/2">
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" name="checked" id="checked" v-model="isPurple">
+                            <label for="checked" class="text-gray-600">Purple</label>
+                        </div>
+
+                        <div>
+                            <select name="color" id=""
+                                class="border border-gray-300 p-2 rounded-md outline-blue-400 w-full"
+                                v-model="selectedColor">
+                                <option value="">white</option>
+                                <option value="text-black">black</option>
+                                <option value="text-orange">orange</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <input type="number" name="size" v-model.number="size" id=""
+                                class="border border-gray-300 p-2 rounded-md outline-blue-400 w-full">
+                        </div>
                     </div>
-                    <div class="w-50 py-4">
-                        <select name="color" id="" class="border border-gray-300 p-2 rounded-md outline-blue-400 w-full" v-model="selectedColor">
-                            <option value="">white</option>
-                            <option value="text-black">black</option>
-                            <option value="text-orange">orange</option>
-                        </select>
-                    </div>
-                    <div class="relative w-50 h-50 bg-blue-500 rounded-full flex items-center justify-center" :class="circle_class">
-                        <span class="absolute font-medium text-white text-4xl" :class="selectedColor">Hi!</span>
+
+                    <!-- Right section: Circle -->
+                    <div class="w-full lg:w-1/2 flex justify-center items-center">
+                        <div class="relative bg-blue-500 rounded-full flex items-center justify-center"
+                            :class="circle_class" :style="[{ width: size + 'px', height: size + 'px' }, {transform: 'rotate(0deg)'}]">
+                            <span class="absolute font-medium text-white text-4xl" :class="selectedColor">Hi!</span>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>

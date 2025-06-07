@@ -11,6 +11,7 @@ const vm = Vue.createApp({
             middleName:"",
             isPurple:false,
             selectedColor:"",
+            size:250
         }
     },
     methods: {
