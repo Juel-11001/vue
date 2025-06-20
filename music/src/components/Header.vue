@@ -4,8 +4,7 @@
     <nav class="container mx-auto flex justify-start items-center py-5 px-4">
       <!-- App Name -->
       <a class="text-white font-bold uppercase text-2xl mr-4" href="#"
-      >Music</a
-      >
+      >Music</a>
 
       <div class="flex flex-grow items-center">
         <!-- Primary Navigation -->
@@ -24,17 +23,18 @@
 </template>
 
 <script>
-import {mapStores} from "pinia"
+import {mapStores, mapState, mapWritableState} from "pinia"
 import useModalStore from "@/stores/modal.js"
 export default {
   name:"Header",
   computed:{
-    ...mapStores(useModalStore)
+    ...mapStores(useModalStore),
+    ...mapWritableState(useModalStore,["isOpen"])
   },
   methods:{
     appAuthModal(){
-      this.modalStore.isOpen=!this.modalStore.isOpen;
-      console.log(this.modalStore.isOpen);
+      this.isOpen=!this.isOpen;
+      console.log(this.isOpen);
     }
   }
 }
