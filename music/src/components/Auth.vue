@@ -84,56 +84,63 @@
             <!-- Email -->
             <div class="mb-3">
               <label class="inline-block mb-2">Email</label>
-              <input
+              <vee-field
                 type="email"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Enter Email" name="email"
               />
+              <ErrorMessage name="email" class="text-red-500"/>
             </div>
             <!-- Age -->
             <div class="mb-3">
               <label class="inline-block mb-2">Age</label>
-              <input
+              <vee-field
                 type="number"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded" name="age"
               />
+              <ErrorMessage name="age" class="text-red-500"/>
             </div>
             <!-- Password -->
             <div class="mb-3">
               <label class="inline-block mb-2">Password</label>
-              <input
+              <vee-field
                 type="password"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Password" name="password"
               />
+              <ErrorMessage name="password" class="text-red-500"/>
             </div>
             <!-- Confirm Password -->
             <div class="mb-3">
               <label class="inline-block mb-2">Confirm Password</label>
-              <input
+              <vee-field
                 type="password"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-                placeholder="Confirm Password"
+                placeholder="confirm_password" name="confirm_password"
               />
+              <ErrorMessage name="confirm_password" class="text-red-500"/>
             </div>
             <!-- Country -->
             <div class="mb-3">
               <label class="inline-block mb-2">Country</label>
-              <select
+              <vee-field as="select" name="country"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
               >
                 <option value="USA">USA</option>
                 <option value="Mexico">Mexico</option>
                 <option value="Germany">Germany</option>
-              </select>
+                <option value="india">India</option>
+              </vee-field>
+              <ErrorMessage name="country" class="text-red-500"/>
             </div>
             <!-- TOS -->
             <div class="mb-3 pl-6">
-              <input
+              <vee-field name="tos" value="1"
                 type="checkbox"
                 class="w-4 h-4 float-left -ml-6 mt-1 rounded"
               />
-              <label class="inline-block">Accept terms of service</label>
+              <label class="inline-block">Accept terms of service</label> <br>
+              <ErrorMessage name="tos" class="text-red-500"/>
             </div>
             <button
               type="submit"
@@ -158,11 +165,12 @@ export default {
       tab:"login",
       schema:{
         name:"required|min:3|max:55|alpha_spaces",
-        email:"",
-        age:"",
-        password:"",
-        confirm_password:"",
-        country:"",
+        email:"required|min:3|max:56|email",
+        age:"required|min_value:18|max_value:110",
+        password:"required|min:4|max:256",
+        confirm_password:"confirmed:@password",
+        country:"required|exclude:india",
+        tos:"required"
 
       }
     }
