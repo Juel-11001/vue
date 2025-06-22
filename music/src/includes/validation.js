@@ -7,6 +7,7 @@ export default {
       app.component("VeeField", VeeField);
       app.component("ErrorMessage", ErrorMessage);
 
+      //set rules: 
       defineRule('required', required);
       defineRule('min', min);
       defineRule('max',max);
