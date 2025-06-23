@@ -171,8 +171,8 @@ export default {
         age:"required|min_value:18|max_value:110",
         password:"required|min:4|max:256|exclude:password",
         confirm_password:"confirmed:@password",
-        country:"required|exclude:india",
-        tos:"required"
+        country:"required|country_exclude:india",
+        tos:"tos"
       },
       userData:{
         country:'USA'
