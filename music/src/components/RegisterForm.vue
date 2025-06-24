@@ -86,7 +86,6 @@
 </template>
 
 <script>
-import {auth,usersCollection} from "@/includes/firebase.js";
 import {mapActions} from "pinia";
 import useUserStore from "@/stores/user.js"
 
