@@ -1,5 +1,21 @@
-import {Form as VeeForm, Field as VeeField, defineRule, ErrorMessage, configure} from 'vee-validate';
-import {required, min, max, alpha_spaces as alphaSpaces, email, min_value, max_value, confirmed, not_one_of as exclude} from "@vee-validate/rules";
+import {
+  configure,
+  defineRule,
+  ErrorMessage,
+  Field as VeeField,
+  Form as VeeForm
+} from 'vee-validate';
+import {
+  alpha_spaces as alphaSpaces,
+  confirmed,
+  email,
+  max,
+  max_value,
+  min,
+  min_value,
+  not_one_of as exclude,
+  required
+} from "@vee-validate/rules";
 
 export default {
   install(app){
@@ -34,8 +50,7 @@ export default {
             confirmed:`The password dont' match.`,
             country_exclude:`Due to restrictions, we don't accept users from this location.`
           };
-          const message=messages[ctx.rule.name] ? messages[ctx.rule.name] : `the field ${ctx.field} is invalid.`;
-          return message;
+          return messages[ctx.rule.name] ? messages[ctx.rule.name] : `the field ${ctx.field} is invalid.`;
         },
         validateOnBlur:true,
         validateOnInput:false,

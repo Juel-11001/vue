@@ -2,7 +2,7 @@
   <div class="error-message" v-if="reg_show_alert" :class="reg_alert_variant">
     {{reg_alert_msg}}
   </div>
-  <vee-form  :validation-schema="schema" @submit="submitForm" :initial-values="userData">
+  <vee-form  :validation-schema="schema" @submit="registerForm" :initial-values="userData">
     <!-- Name -->
     <div class="mb-3">
       <label class="inline-block mb-2">Name</label>
@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import firebase from "@/includes/firebase.js";
 export default {
   name:"Register Form",
   data(){
@@ -109,12 +110,14 @@ export default {
     }
   },
   methods:{
-    submitForm(values){
+    async registerForm(values){
       this.reg_show_alert=true;
       this.reg_in_submission=true;
       this.reg_alert_variant="bg-blue-500";
       this.reg_alert_msg="Please wait! Your account is being created.";
-
+       const  userCred= await firebase.auth().createUserWithEmailAndPassword(
+         values.email, values.password
+       )
       this.reg_alert_variant="bg-green-500";
       this.reg_alert_msg="Success! Your account has been created."
 
