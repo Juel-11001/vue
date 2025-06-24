@@ -26,7 +26,12 @@ export default defineStore("user", {
           console.error("Registration failed:", error);
           throw error;
         }
-      }
+      },
+    async authenticate(values){
+        await auth.signInWithEmailAndPassword(values.email, values.password)
+
+      this.userLogin=true;
+    }
 
   }
 })

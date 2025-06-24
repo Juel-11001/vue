@@ -32,6 +32,9 @@
 </template>
 
 <script>
+import {mapActions} from "pinia";
+import useUserStore from "@/stores/user.js"
+
 export default {
   name:"Login Form",
   data (){
@@ -47,9 +50,22 @@ export default {
     }
   },
   methods:{
-    login(values){
+    ...mapActions(useUserStore, ["authenticate"]),
+    async login(values){
       this.login_submission=true;
       this.login_show_alert=true;
+      this.login_alert_variant="bg-blue-500";
+      this.login_alert_msg="Please wait! we are login ."
+      try {
+        await this.authenticate(values);
+      }catch (error){
+        this.login_submission=false
+        this.login_alert_variant="bg-red-500";
+        this.login_alert_msg="Invalid login details!";
+        console.log(error)
+      }
+
+
       this.login_alert_variant="bg-green-500";
       this.login_alert_msg="Success! You are log in.";
       console.log(values)
