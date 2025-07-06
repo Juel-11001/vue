@@ -16,13 +16,17 @@ const routes=[
   },
   {
     name:'manage',
-    path: '/manage',
-    component: Manage,
-  },
-  {
     path: '/manage-music',
-    redirect:{name:'manage'}
+    component: Manage,
+    beforeEnter:(to, from, next)=> {
+      console.log("manage route guard!");
+      next();
+    }
   },
+  // {
+  //   path: '/manage-music',
+  //   redirect:{name:'manage'}
+  // },
   {
     path:'/:catchAll(.*)*',
     component: Error404
@@ -34,5 +38,11 @@ const router = createRouter({
   routes,
   linkExactActiveClass:"text-yellow-500"
 })
+
+router.beforeEach((to, from, next)=>{
+  console.log("global guard");
+  // console.log(to, from);
+  next();
+});
 
 export default router
