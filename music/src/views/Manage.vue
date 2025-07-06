@@ -181,15 +181,15 @@
 import useUserStore from "@/stores/user.js"
 export default {
   name:"manage",
-  beforeRouteEnter(to, from, next){
-    const store=useUserStore();
-    if(store.userLogin){
-      next();
-    }else {
-      next({name:'home'})
-    }
+  // beforeRouteEnter(to, from, next){
+  //   const store=useUserStore();
+  //   if(store.userLogin){
+  //     next();
+  //   }else {
+  //     next({name:'home'})
+  //   }
     // console.log("before enter the route");
     // next();
-  }
+  // }
 }
 </script>

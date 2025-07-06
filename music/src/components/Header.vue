@@ -44,7 +44,8 @@ export default {
     },
     logOut(){
       this.userStore.logout();
-      if(this.$route.name === 'manage'){
+      // if(this.$route.name === 'manage'){
+      if(this.$route.meta.requiresAuth){
       this.$router.push({name:"home"});
       }
     }
